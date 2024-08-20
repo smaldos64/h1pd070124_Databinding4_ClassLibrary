@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Databinding4_ClassLibrary"
         xmlns:other="clr-namespace:Databinding4_ClassLibrary.Converters"
         mc:Ignorable="d"
-        Title="Netværks Program" Height="Auto" Width="1280" Background="Yellow" MinHeight="1020">
+        Title="Netværks Test Program" Height="Auto" Width="1280" Background="Yellow" MinHeight="1020">
 
     <Window.Resources>
         <other:TextToBinaryConverter x:Key="BinaryConverter" />
@@ -39,15 +39,57 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="txtIpAddressOctet1" HorizontalAlignment="Left" Height="40" TextWrapping="NoWrap" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="1" KeyDown="txtCheckForValidKeyPressedPositiveInteger" FontSize="24" 
-         Text="{Binding ElementName=sldIpAddressOctet1, Path=Value, Mode=TwoWay}" MaxLength="3"/>
-        <Slider x:Name="sldIpAddressOctet1" Minimum="{Binding Source={x:Static local:MainWindow.SliderMinValue}}" Maximum="{Binding Source={x:Static local:MainWindow.SliderMaxValue}}" Visibility="Hidden" IsEnabled="False" Grid.Row="0" Grid.Column="1" 
+        <TextBox x:Name="txtIpAddressOctet1" 
+                 HorizontalAlignment="Left" 
+                 Height="40" TextWrapping="NoWrap" 
+                 VerticalAlignment="Top" 
+                 Width="60" 
+                 Grid.ColumnSpan="1" 
+                 Grid.Row="0" 
+                 Grid.Column="1" 
+                 KeyDown="txtCheckForValidKeyPressedPositiveInteger" 
+                 FontSize="24" 
+                 Text="{Binding ElementName=sldIpAddressOctet1, Path=Value, Mode=TwoWay}" 
+                 MaxLength="3"
+        />
+
+        <Slider x:Name="sldIpAddressOctet1" 
+                Minimum="{Binding Source={x:Static local:MainWindow.SliderMinValue}}" 
+                Maximum="{Binding Source={x:Static local:MainWindow.SliderMaxValue}}" 
+                Visibility="Hidden" 
+                IsEnabled="False" 
+                Grid.Row="0" 
+                Grid.Column="1" 
                 Value="{Binding ElementName=txtIpAddressOctet1, Path=Text, Mode=TwoWay}"
-                IsSnapToTickEnabled="True" TickFrequency="1" />
-        <TextBox x:Name="txtIpAddressOctet1Binary" HorizontalAlignment="Left" Height="23" TextWrapping="NoWrap" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="1" Grid.Row="4" Grid.Column="1" FontWeight="Bold" 
-        Text="{Binding ElementName=txtIpAddressOctet1, Path=Text, Mode=TwoWay, Converter={StaticResource BinaryConverter}, UpdateSourceTrigger=PropertyChanged}" KeyDown="txtCheckForValidKeyPressedBinaryInteger" PreviewKeyDown="txtIpAddressOctetBinary_PreviewKeyDown" />
+                IsSnapToTickEnabled="True" 
+                TickFrequency="1" 
+        />
         
-        <Button Name="btnClearNetworkAddressOctet1" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="1" Tag="txtIpAddressOctet1" Click="btnNetworkClearOctet_Click">
+        <TextBox x:Name="txtIpAddressOctet1Binary" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 TextWrapping="NoWrap" 
+                 VerticalAlignment="Top" 
+                 Width="60" 
+                 Grid.ColumnSpan="1" 
+                 Grid.Row="4" 
+                 Grid.Column="1" 
+                 FontWeight="Bold" 
+                 Text="{Binding ElementName=txtIpAddressOctet1, Path=Text, Mode=TwoWay, Converter={StaticResource BinaryConverter}, UpdateSourceTrigger=PropertyChanged}" 
+                 KeyDown="txtCheckForValidKeyPressedBinaryInteger" 
+                 PreviewKeyDown="txtIpAddressOctetBinary_PreviewKeyDown" 
+        />
+        
+        <Button Name="btnClearNetworkAddressOctet1" 
+                HorizontalAlignment="Left" 
+                Height="23" 
+                VerticalAlignment="Top" 
+                Width="Auto" 
+                Grid.ColumnSpan="2" 
+                Grid.Row="5" 
+                Grid.Column="1" 
+                Tag="txtIpAddressOctet1" 
+                Click="btnNetworkClearOctet_Click">
             <Button.Content>
                 <TextBlock>
                     <Run Text="Clear"></Run>
@@ -56,26 +98,82 @@
             </Button.Content>
         </Button>
 
-        <TextBox x:Name="txtSubnetMaskOctet1" HorizontalAlignment="Left" Height="40" TextWrapping="NoWrap" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="1" Grid.Row="8" Grid.Column="1" KeyDown="txtCheckForValidKeyPressedPositiveInteger" TabIndex="4" FontSize="24" 
-          Text="{Binding ElementName=sldSubnetMaskOctet1, Path=Value, Mode=TwoWay}" MaxLength="3" />
-        <Slider x:Name="sldSubnetMaskOctet1" Minimum="{Binding Source={x:Static local:MainWindow.SliderMinValue}}" Maximum="{Binding Source={x:Static local:MainWindow.SliderMaxValue}}" Visibility="Hidden" 
-                IsEnabled="False" Grid.Row="8" Grid.Column="1" Value="{Binding ElementName=txtSubnetMaskOctet1, Path=Text, Mode=TwoWay}"
-                IsSnapToTickEnabled="True" TickFrequency="1" />
-        <TextBox x:Name="txtSubnetMaskOctet1Binary" HorizontalAlignment="Left" Height="23" TextWrapping="NoWrap" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="1" Grid.Row="9" Grid.Column="1" FontWeight="Bold"  
-            Text="{Binding ElementName=txtSubnetMaskOctet1, Path=Text, Mode=TwoWay, Converter={StaticResource BinaryConverter}, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="txtSubnetMaskOctet1" 
+                 HorizontalAlignment="Left" 
+                 Height="40" 
+                 TextWrapping="NoWrap" 
+                 VerticalAlignment="Top" 
+                 Width="60" 
+                 Grid.ColumnSpan="1" 
+                 Grid.Row="8" 
+                 Grid.Column="1" 
+                 KeyDown="txtCheckForValidKeyPressedPositiveInteger" 
+                 TabIndex="4" 
+                 FontSize="24" 
+                 Text="{Binding ElementName=sldSubnetMaskOctet1, Path=Value, Mode=TwoWay}" 
+                 MaxLength="3" 
+        />
+        
+        <Slider x:Name="sldSubnetMaskOctet1" 
+                Minimum="{Binding Source={x:Static local:MainWindow.SliderMinValue}}" 
+                Maximum="{Binding Source={x:Static local:MainWindow.SliderMaxValue}}" 
+                Visibility="Hidden" 
+                IsEnabled="False" 
+                Grid.Row="8" 
+                Grid.Column="1" 
+                Value="{Binding ElementName=txtSubnetMaskOctet1, Path=Text, Mode=TwoWay}"
+                IsSnapToTickEnabled="True" 
+                TickFrequency="1" 
+        />
+        
+        <TextBox x:Name="txtSubnetMaskOctet1Binary" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 TextWrapping="NoWrap" 
+                 VerticalAlignment="Top" 
+                 Width="60" 
+                 Grid.ColumnSpan="1" 
+                 Grid.Row="9" 
+                 Grid.Column="1" 
+                 FontWeight="Bold"  
+                 Text="{Binding ElementName=txtSubnetMaskOctet1, Path=Text, Mode=TwoWay, Converter={StaticResource BinaryConverter}, UpdateSourceTrigger=PropertyChanged}" 
+        />
 
         <Button Name="btnClearSubnetMaskOctet1" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="4" Grid.Row="10" Grid.Column="1" Tag="txtSubnetMaskOctet1" Click="btnNetworkClearOctet_Click">
             <Button.Content>
                 <TextBlock>
             <Run Text="Clear"></Run>
-            <Run Text="{Binding ElementName=txtSubnetMaskOctet1, Path=Text}" />
+            <Run Text="{Binding ElementName=txtSubnetMaskOctet1, Path=Text, Mode=OneWay}" />
                 </TextBlock>
             </Button.Content>
         </Button>
 
-        <TextBox x:Name="txtWildcardMaskOctet1" HorizontalAlignment="Left" Height="40" TextWrapping="NoWrap" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="1" Grid.Row="12" Grid.Column="1" FontSize="24" IsReadOnly="true" 
-                Text="{Binding ElementName=txtSubnetMaskOctet1, Path=Text, Mode=OneWay, Converter={StaticResource WildcardConverter}, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox x:Name="txtWildcardMaskOctet1Binary" HorizontalAlignment="Left" Height="23" TextWrapping="NoWrap" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="1" Grid.Row="13" Grid.Column="1" IsReadOnly="true" FontWeight="Bold"  
-                Text="{Binding ElementName=txtWildcardMaskOctet1, Path=Text, Mode=OneWay, Converter={StaticResource BinaryConverter}}" />
+        <TextBox x:Name="txtWildcardMaskOctet1" 
+                 HorizontalAlignment="Left" 
+                 Height="40" 
+                 TextWrapping="NoWrap" 
+                 VerticalAlignment="Top" 
+                 Width="60" 
+                 Grid.ColumnSpan="1" 
+                 Grid.Row="12" 
+                 Grid.Column="1" 
+                 FontSize="24" 
+                 IsReadOnly="true" 
+                 Text="{Binding ElementName=txtSubnetMaskOctet1, Path=Text, Mode=OneWay, Converter={StaticResource WildcardConverter}, UpdateSourceTrigger=PropertyChanged}"
+        />
+        
+        <TextBox x:Name="txtWildcardMaskOctet1Binary" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 TextWrapping="NoWrap" 
+                 VerticalAlignment="Top" 
+                 Width="60" 
+                 Grid.ColumnSpan="1" 
+                 Grid.Row="13" 
+                 Grid.Column="1" 
+                 IsReadOnly="true" 
+                 FontWeight="Bold"  
+                 Text="{Binding ElementName=txtWildcardMaskOctet1, Path=Text, Mode=OneWay, Converter={StaticResource BinaryConverter}}" 
+        />
     </Grid>
 </Window>
